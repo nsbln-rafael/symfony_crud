@@ -1,5 +1,19 @@
-controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
+app_product_show:
+    path: /product/show
+    controller: App\Controller\Product\Show\Controller
+
+app_product_view:
+    path: /product/view/{id<\d+>}
+    controller: App\Controller\Product\View\Controller
+
+app_product_create:
+    path: /product/create
+    controller: App\Controller\Product\Create\Controller
+
+app_product_edit:
+    path: /product/edit/{id<\d+>}
+    controller: App\Controller\Product\Edit\Controller
+
+app_product_delete:
+    path: /product/delete/{id<\d+>}
+    controller: App\Controller\Product\Delete\Controller

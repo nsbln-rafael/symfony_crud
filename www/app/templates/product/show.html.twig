@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Все продукты{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2 class="text-center mt-5 mb-3">Продукты</h2>
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-outline-primary" href="{{ path('app_product_create') }}">
+                    Создать продукт
+                </a>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Название</th>
+                        <th>Цена</th>
+                        <th>Действия</th>
+                    </tr>
+                    {% for product in products %}
+                        <tr>
+                            <td>{{ product.name }}</td>
+                            <td>{{ product.price }}</td>
+                            <td class="text-center">
+                                <a
+                                    class="btn btn-outline-info"
+                                    href="{{ path('app_product_view', {'id': product.id}) }}">
+                                    Просмотр
+                                </a>
+                                <a
+                                    class="btn btn-outline-success"
+                                    href="{{ path('app_product_edit', {'id': product.id}) }}">
+                                    Редактировать
+                                </a>
+                                <a
+                                    class="btn btn-outline-warning"
+                                    href="{{ path('app_product_delete', {'id': product.id}) }}">
+                                    Удалить
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
